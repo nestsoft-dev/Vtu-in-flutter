@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/list_item.dart';
+
 class Transactions extends StatelessWidget {
-  const Transactions({Key? key}) : super(key: key);
+   Transactions({Key? key}) : super(key: key);
+
+  List history = [];
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold();
+    return  SafeArea(
+      child: Scaffold(
+        body: ListView.builder(itemBuilder: (context,index){
+          return ListItem();
+        }),
+      ),
+    );
   }
 }
 

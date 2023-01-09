@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Box extends StatelessWidget {
-  const Box({Key? key}) : super(key: key);
+  IconData icon;
+  String name;
+   Box({Key? key,required this.icon,required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String name;
     return  Container(
       height: 150,
       width: 120,
@@ -17,10 +18,10 @@ class Box extends StatelessWidget {
         children: [
           SizedBox(height: 30,),
           Center(
-            child: Icon(Icons.network_cell,color: Colors.black,),
+            child: Icon(icon,color: Colors.black,),
           ),
           SizedBox(height: 30,),
-          Text('Airtime',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 25),)
+          Text(name,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 25),)
         ],
       ),
     );
