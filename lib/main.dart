@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vtu_flutter/screens/home.dart';
+import 'package:vtu_flutter/screens/main_page.dart';
+import 'package:vtu_flutter/screens/profile.dart';
+import 'package:vtu_flutter/screens/top_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  HomePage(),
+      home:  MainPage(),
     );
   }
 }

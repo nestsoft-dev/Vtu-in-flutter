@@ -15,14 +15,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> screens = [
-    HomePage(),
-    TopUp(),
-    Transactions(),
-    Profile(),
-  ];
 
-  List images = [
+
+  List<String> images = [
     "assets/first",
     "assets/second",
     "assets/third",
@@ -30,41 +25,13 @@ class _HomePageState extends State<HomePage> {
     "assets/fifth",
   ];
 
-  var currentIndex = 0;
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        items: [
-          Icon(
-            Icons.home_rounded,
-            color: Colors.indigo,
-          ),
-          Icon(
-            Icons.monetization_on,
-            color: Colors.indigo,
-          ),
-          Icon(
-            Icons.history,
-            color: Colors.indigo,
-          ),
-          Icon(
-            Icons.person,
-            color: Colors.indigo,
-          ),
-        ],
-        color: Colors.deepPurple.shade200,
-        height: 70,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Colors.white60,
-        animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 600),
-        onTap: (index) {
-          print(index);
-          setState(() {});
-        },
-      ),
+
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -96,29 +63,27 @@ class _HomePageState extends State<HomePage> {
               ),
 
               //slider
-          Container(
-                height: 200,
-                width: double.infinity,
-                margin: EdgeInsets.only(left: 20, right: 20),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                        image: AssetImage("assets/first.png"), fit: BoxFit.cover)),
-              ),
+           Container(
+             height: 250,
+             width: double.maxFinite,
+             child:   ListView.builder(
+                 itemCount: 5,
+                 scrollDirection: Axis.horizontal,
+                 itemBuilder: (BuildContext context,int index){
+                   return  Container(
+                     height: 200,
+                     width: MediaQuery.of(context).size.width ,
+                     margin: EdgeInsets.only(left: 20, right: 20),
+                     decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(20),
+                         image: DecorationImage(
+                             image: AssetImage("${images[index]}.png"), fit: BoxFit.cover)),
+                   );
+                 }),
+           ),
 
-              // ListView.builder(
-              //   itemCount: images.length,
-              //     itemBuilder: (context, index) {
-              //   return Container(
-              //     height: 200,
-              //     width: double.infinity,
-              //     margin: EdgeInsets.only(left: 20, right: 20),
-              //     decoration: BoxDecoration(
-              //         borderRadius: BorderRadius.circular(20),
-              //         image: DecorationImage(
-              //             image: AssetImage("${images[index]}.png"), fit: BoxFit.cover)),
-              //   );
-              // }),
+
+
 
               SizedBox(
                 height: 15,
@@ -128,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(left: 20, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'More',
                       style: TextStyle(
@@ -148,16 +113,19 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Box(
+
                       icon: Icons.network_cell,
                       name: 'Airtime',
+                      mycolor: (0xFFbfeb91),
                     ),
                     Box(
+
                       icon: Icons.web,
-                      name: 'Data',
+                      name: 'Data', mycolor: (0xffEEAE04 ),
                     ),
                     Box(
                       icon: Icons.cable,
-                      name: 'Cable',
+                      name: 'Cable', mycolor: (0xff07DD00 ),
                     ),
                   ],
                 ),
@@ -171,16 +139,19 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Box(
+                      mycolor: (0xffCC00DD),
                       icon: Icons.electric_bike,
                       name: 'PayBills',
                     ),
                     Box(
+                      mycolor: (0xff00CFCF),
                       icon: Icons.web,
                       name: 'E-pins',
                     ),
                     Box(
+                      mycolor: (0xffED4B00),
                       icon: Icons.cable,
-                      name: 'Airtime 2Cash',
+                      name: 'Airtime \n 2Cash',
                     ),
                   ],
                 ),

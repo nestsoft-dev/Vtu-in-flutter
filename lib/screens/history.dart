@@ -11,7 +11,9 @@ class Transactions extends StatelessWidget {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
-        body: ListView.builder(itemBuilder: (context,index){
+        body: ListView.builder(
+          itemCount: 5,
+            itemBuilder: (context,index){
           return ListItem();
         }),
       ),
